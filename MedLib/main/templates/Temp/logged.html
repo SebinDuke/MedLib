@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+
+    <meta charset="utf-8">
+    <title>MedLib</title>
+    <meta name="generator" content="Bootply"/>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet">
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "70%";
+            // document.getElementById("flipkart-navbar").style.width = "50%";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.body.style.backgroundColor = "rgba(0,0,0,0)";
+        }
+    </script>
+</head>
+<body style="background: #eeeeee">
+
+
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<div id="flipkart-navbar" style="background: #576396">
+    <div class="container">
+        <div class="row row1" style="margin-top: 20px;padding-bottom:20px">
+            <div class="col-sm-2">
+                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ OPINIUM</span></h2>
+                <h1 style="margin:0px;"><span class="largenav">OPINIUM</span></h1>
+            </div>
+            <div class="flipkart-navbar-search smallsearch col-sm-8">
+                <div class="row">
+
+                    <form class="form" method="POST" action="{% url 'main:search' %}"><!--Not applied yet -->
+                        {% csrf_token %}
+                        <input style="color:#000" class="flipkart-navbar-input col-xs-11" name="topic_text" type=""
+                               placeholder="Search for Issues and more" required>
+                        <button class="flipkart-navbar-button col-xs-1">
+                            <svg width="15px" height="15px">
+                                <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-1">
+                <ul style="padding-top:5px;list-style:none">
+                    <li><h4 style="font-size: 15px;font-weight: bolder"> {{ user_id.user_name }}</h4>
+
+
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-1">
+                <ul style="padding-top:5px;list-style:none">
+                    <li><a style="font-size: 15px;font-weight: bolder" href="logout" class="btn btn-warning">Log Out</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<center>
+
+<a style="margin-top:20px; padding: 30px; font-size: 30px" class="btn btn-warning" href="search_checkup">CHECK-UP NOW</a>
+</center>
+<script type="text/javascript"
+        src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5892d5e98848c5c0"></script>
+</body>
+</html>

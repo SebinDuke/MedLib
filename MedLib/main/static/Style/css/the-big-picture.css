@@ -1,0 +1,358 @@
+/*!
+ * Start Bootstrap - The Big Picture HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+@import url(http://fonts.googleapis.com/css?family=Source%20Sans%20Pro:300,400,500,600,700);
+body {
+	
+	margin-bottom: 50px;
+	background: none;
+	font-family: "Open Sans" , "Helvetica Neue" ,Helvetica,Arial,sans-serif;
+}
+
+h1, h2{
+  font-weight: lighter;
+  color:#fff;
+}
+.padding-top50{
+ padding-top: 50px;
+}
+
+.full
+{
+    background: url('../img/polygon.png') no-repeat;
+    background: #0089ca;
+    color: #fff;
+    background-image: url('../img/inspiration-geometry.png');
+    background-repeat: repeat;
+}
+ .btn-border{
+	border:1px solid #A3CEE4;
+        background-color: transparent;
+	color: #A3CEE4;
+	padding-left: 20px;
+	padding-right: 20px;
+} 
+.btn-border:hover{
+        color:#fff;
+border:1px solid #fff;
+}
+
+.navbar-default .navbar-brand
+{
+   
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-family: 'Open Sans' , serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.navbar-default
+{
+    border-style: none;
+    font-size: 14px;
+    border-radius: 0px;
+    background: rgba(27,100,168,1);
+background: -moz-linear-gradient(left, rgba(27,100,168,1) 0%, rgba(0,0,0,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(27,100,168,1)), color-stop(100%, rgba(0,0,0,1)));
+background: -webkit-linear-gradient(left, rgba(27,100,168,1) 0%, rgba(0,0,0,1) 100%);
+background: -o-linear-gradient(left, rgba(27,100,168,1) 0%, rgba(0,0,0,1) 100%);
+background: -ms-linear-gradient(left, rgba(27,100,168,1) 0%, rgba(0,0,0,1) 100%);
+background: linear-gradient(to right, rgba(27,100,168,1) 0%, rgba(0,0,0,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b64a8', endColorstr='#000000', GradientType=1 );
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s; margin: 0px;
+}
+.navbar-default:hover
+{
+    background: rgba(0,0,0,1);
+background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(27,100,168,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,1)), color-stop(100%, rgba(27,100,168,1)));
+background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(27,100,168,1) 100%);
+background: -o-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(27,100,168,1) 100%);
+background: -ms-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(27,100,168,1) 100%);
+background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(27,100,168,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#1b64a8', GradientType=1 );
+}
+.navbar-default .navbar-nav > li > a
+{
+    background-color: rgba(248, 248, 248, 0);
+    color: #A3CEE4;
+    border-top-style: solid;
+    border-top-color: transparent;
+    border-width: 2px;
+   
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
+{
+    color: #fff;
+    background-color: #022F46;
+    border-top-style: solid;
+    border-top-color: #000000;
+    border-width: 2px;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
+{
+    
+    color: #E4F1F8;    background-color: #035079;
+    border-top-style: solid;
+    border-top-color: #000000;border-width: 2px;
+}
+.navbar-default .navbar-toggle {
+    border-color: #ddd;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #ddd;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+.navbar-default .navbar-toggle:hover .icon-bar,
+.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #888;
+}
+
+img
+{
+      background: #333;
+	background: rgba(51, 51, 51, 0.1);
+}
+
+.registrationform
+{
+    padding: 30px;
+    color: #FFF !important;
+    margin: 0px;
+}
+.registrationform h1
+{
+    margin-bottom: 50px;
+    font-size: 40px;
+    color: #FFFFFF;
+}
+.registrationform a
+{
+    color: #FFFFFF !important;
+}
+.registrationform a:hover
+{
+    color: #000;
+    text-decoration: underline;
+}
+input, textarea{
+    
+    color: #FFF;
+}
+.control-label
+{
+    color: #FFFFFF;
+}
+.checkbox
+{
+   
+    color: #F7F7F7;
+}
+
+
+.radio
+{
+    color: #F7F7F7;
+}
+legend
+{
+    text-align: left;
+    color: #FFFFFF;
+    font-weight: lighter;
+    font-size: 26px;
+}
+
+
+
+input[type="text"]:focus, 
+textarea:focus, 
+textarea.form-control:focus {
+	outline: 0;
+	
+     box-shadow:none;
+    -moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+}
+
+.form-control:-moz-placeholder
+{
+    color: #004F75;
+    background-color: transparent;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.form-control:-ms-input-placeholder { color: #004F75; }
+.form-control::-webkit-input-placeholder { color: #004F75; }
+.input-group-addon {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: #FFF;
+  text-align: center;
+   background-color: transparent; 
+  border: 1px solid #FFF;
+  border-radius: 4px;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: 45px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid #fff;
+  border-radius: 4px;  
+}
+.form-control:focus {
+  border-color: #fff; 
+  outline: 0;
+  
+  box-shadow:none;-moz-box-shadow: none; -webkit-box-shadow: none; box-shadow: none;
+ /* -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6); 
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);*/
+}
+.container form {
+  background-color: transparent;
+  color: #888888;
+  text-align: left;
+  padding: 20px;
+ 
+}
+
+.container label {
+  display: none;
+}
+
+.container input, .container textarea
+{
+    /* to create space for placing icon*/
+    padding-left: 36px;
+    border-color: 1px solid #fff;
+    background-color: transpatent;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.container .registrationform .btn-default
+{
+    margin-top: 25px;
+    margin-bottom: 30px;
+    padding: 13px 35px;
+    border-radius: 5px;
+    border: 1px solid #02498E;
+    color: #fff;
+    background-color: #02498E;
+    text-align: center;
+    margin-right: 15px;
+}
+
+.container .registrationform .btn-default:hover, .registrationform .container .registrationform .btn-default:focus
+{
+    background-color: #002346;
+    color: #F1F1F1;
+    border-color: #002346;
+    outline: 0px auto -webkit-focus-ring-color;
+}
+
+/*position should be relative and z-index greater than one*/
+.container .icon
+{
+    position: relative;
+    float: left;
+    margin-left: 12px;
+    margin-top: -28px;
+    z-index: 2;
+    color: #FFFFFF;
+}
+
+.container .icon-textarea {
+  float: left;
+  margin-left: -12px;
+  margin-top: -104px;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+/* modal-popup */
+.modal-footer
+{
+    border-top: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.modal-header
+{
+    margin: 0px;
+    padding-top: 5x;
+    padding-bottom: 5x;
+}
+
+#pwdModal .brick
+{
+    background-color: #FF5050;
+}
+.panel-body
+{
+    color: #333333;
+}
+
+#pwdModal input[type="text"]:focus, 
+#pwdModal textarea:focus, 
+#pwdModal textarea.form-control:focus {
+	outline: 0;
+     
+}
+
+#pwdModal .form-control:-moz-placeholder
+{
+    color: #C0C0C0;
+    background-color: transparent;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#pwdModal .form-control:-ms-input-placeholder { color: #C0C0C0; }
+#pwdModal .form-control::-webkit-input-placeholder { color: #C0C0C0; }
+#pwdModal .input-group-addon {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: #FFF;
+  text-align: center;
+   background-color: transparent; 
+  border: 1px solid #FFF;
+  border-radius: 4px;
+}
+#pwdModal .form-control
+{
+    display: block;
+    width: 100%;
+    height: 45px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+}
+#pwdModal .form-control:focus
+{
+    border-color: #009933;
+    outline: 0; /* -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6); 
+   box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);*/
+}

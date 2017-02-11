@@ -1,0 +1,61 @@
+body {
+	font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+	background-image: url("bg.jpg");
+	background-repeat: no-repeat;
+	padding:20px;
+	background-origin: content-box; /* To Find out */
+	background-size: 100% 100%;
+}
+
+header{
+	display: table;
+	line-height: 25pt;
+}
+
+.text-vertical-center {
+	display: table-cell;
+	background-image: url("bg.jpg") no-repeat center center scroll;
+	text-align: center;
+	vertical-align: middle;
+}
+
+h1{
+	text-transform: uppercase;
+	line-height: 5pt;
+	font-size: 50;
+	font-weight: 600;
+}
+
+/* Remove margins and padding from the list, and add a black background color */
+ul.topnav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #222;
+}
+
+/* Float the list items side by side */
+ul.topnav li{
+	float: left;
+	text-transform: uppercase;
+}
+
+/* Style the links inside the list items */
+ul.topnav li a{
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 12px 18px;
+	text-decoration: none;
+	transition: 0.4s;
+	font-size: 15px;
+}
+
+/* Change background color of links on hover */
+ul.topnav li a:hover {background-color: #666;}
+
+/* Hide the list item that contains the link that should open and close the topnav on small screens */
+ul.topnav li.icon {display: true;}
+
+

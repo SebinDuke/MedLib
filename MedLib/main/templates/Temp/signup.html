@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>MedLib</title>
+		<meta name="generator" content="Bootply" />
+		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="{% static 'css/styles.css' %}" rel="stylesheet">
+		
+		 <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet">
+
+    </head>
+	<body>
+<!--login modal-->
+<header id="top" class="header">
+        <div class="text-vertical-center">
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h1 class="text-center">Sign-Up</h1>
+      </div>
+      <div class="modal-body">
+              <form class="form col-md-12 center-block" method="POST" action="{% url 'main:register_user' %}">
+                {% csrf_token %}
+            <div class="form-group">
+                  <input type="text" class="form-control input-lg" name="username" placeholder="User-Name" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control input-lg" name="firstname" placeholder="First-Name" required>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control input-lg" name="lastname" placeholder="Last-Name" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control input-lg" name="email" placeholder="Email-ID" required>
+                </div>
+                  <div class="form-group">
+                  <input type="text" class="form-control input-lg" name="age" placeholder="Age" required>
+                </div>
+                  <div class="form-group">
+                  <input type="text" class="form-control input-lg" name="sex" placeholder="Gender" required>
+                </div>
+                  <div class="form-group">
+                  <input type="text" class="form-control input-lg" name="country" placeholder="Country" required>
+                </div>
+                  <div class="form-group">
+                  <input type="text" class="form-control input-lg" name="height" placeholder="Height" required>
+                </div>
+                  <div class="form-group">
+                  <input type="text" class="form-control input-lg" name="weight" placeholder="Weight" required>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control input-lg" name="pwd" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control input-lg" name="cpwd" placeholder="Confirm-Password" required>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary btn-lg btn-block">Sign Up</button>
+
+                </div>
+              </form>
+      </div>
+      <div class="modal-footer">
+          	
+      </div>
+  </div>
+  </div>
+</div>
+</div>
+</header>
+	</body>
+</html>
