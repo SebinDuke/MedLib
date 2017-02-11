@@ -20,22 +20,11 @@
     <meta name="author" content="">
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet">
-    <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "70%";
-            // document.getElementById("flipkart-navbar").style.width = "50%";
-            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-        }
 
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.body.style.backgroundColor = "rgba(0,0,0,0)";
-        }
-    </script>
 </head>
 <body style="background: #eeeeee">
 
@@ -45,8 +34,8 @@
     <div class="container">
         <div class="row row1" style="margin-top: 20px;padding-bottom:20px">
             <div class="col-sm-2">
-                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ OPINIUM</span></h2>
-                <h1 style="margin:0px;"><span class="largenav">OPINIUM</span></h1>
+                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()"></span></h2>
+                <h1 style="margin:0px;"><span class="largenav"></span></h1>
             </div>
             <div class="flipkart-navbar-search smallsearch col-sm-8">
                 <div class="row">
