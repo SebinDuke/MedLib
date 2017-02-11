@@ -1,47 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load static %}
 
 <head>
-
-    <meta charset="utf-8">
-    <title>MedLib</title>
-    <meta name="generator" content="Bootply"/>
-
-    <link href="{% static '/Style/css/animate.min.css' %}" rel="stylesheet">
-    <link href="{% static '/Style/css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static '/Style/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static '/Style/css/flexslider.css' %}" rel="stylesheet">
-    <link href="{% static '/Style/css/font-icon.css' %}" rel="stylesheet">
-    <link href="{% static '/Style/css/jquery.fancybox.css' %}" rel="stylesheet">
-    <link href="{% static '/Style/css/main.css' %}" rel="stylesheet">
-    <link href="{% static '/Style/css/responsive.css' %}" rel="stylesheet">
-    <link href="{% static '/Style/css/the-big-picture.css' %}" rel="stylesheet">
-
-    <script src="{% static '/Style/js/wow.js' %}"></script>
-    <script src="{% static '/Style/js/main.js' %}"></script>
-
-    <script src="{% static '/Style/js/bootstrap.js' %}"></script>
-    <script src="{% static '/Style/js/bootstrap.min.js' %}"></script>
-    <script src="{% static '/Style/js/jquery.easing.min.js' %}"></script>
-
-    <script src="{% static '/Style/js/jquery.fancybox.pack.js' %}"></script>
-    <script src="{% static '/Style/js/jquery.flexslider-min.js' %}"></script>
-    <script src="{% static '/Style/js/jquery.js' %}"></script>
-    <script src="{% static '/Style/js/jquery.fancybox.pack.js' %}"></script>
-    <script src="{% static '/Style/js/modernizr.js' %}"></script>
-    <script src="{% static '/Style/js/retina.min.js' %}"></script>
-
-
-     <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet'
-        type='text/css' />
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300,800'
-        rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,235 +9,68 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <title>MedLib</title>
+
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="{% static 'css/stylish-portfolio.css' %}" rel="stylesheet">
-    <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "70%";
-            // document.getElementById("flipkart-navbar").style.width = "50%";
-            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-        }
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-            document.body.style.backgroundColor = "rgba(0,0,0,0)";
-        }
-    </script>
+    <!-- Custom Fonts -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <
+    <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+
+
+    <!-- Theme CSS -->
+
+      <link href="{% static 'css/creative.min.css' %}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 
-<body 1id="hme" style="height: 568px">
+<body id="page-top">
+    <header>
 
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <div class="header-content">
 
-<div id="flipkart-navbar " style="background:#576396;">
-    <div class="container">
-        <div class="row" style="margin-top: 20px;padding-bottom:20px">
-            <div class="col-sm-2">
-                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ OPINIUM</span></h2>
-                <h1 style="margin:0px;"><span class="largenav" style="padding-top:20px;color: #fff">OPINIUM</span></h1>
-            </div>
-            <div class="flipkart-navbar-search smallsearch col-sm-8">
+            <div class="header-content-inner">
 
-                <form class="form" method="POST" action="{% url 'main:search' %}"><!--Not applied yet -->
-                    {% csrf_token %}
-                    <input style="color:#000" class="flipkart-navbar-input col-xs-11" name="topic_text" type=""
-                           placeholder="Search for Issues and more" required>
-                    <button class="flipkart-navbar-button col-xs-1">
-                        <svg width="15px" height="15px">
-                            <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
-                        </svg>
-                    </button>
-                </form>
+                <h1 id="homeHeading">Best Health checkup</h1>
+                <hr>
+                <p></p>
+
+                <a href="login" class="btn btn-primary btn-xl page-scroll">Login</a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;                <a href="signup" class="btn btn-success btn-xl page-scroll">Signup</a>
 
             </div>
-
-            <div class="col-sm-1">
-                <ul style="padding-top:5px;list-style:none">
-                    <li><a style="margin-top:20px" class="btn btn-default" href="signup">Sign Up</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-1">
-                <ul style="padding-top:5px;list-style:none">
-                    <li><a style="margin-top:20px" class="btn btn-warning" href="login">Log In</a></li>
-
-                </ul>
-            </div>
+\
         </div>
-    </div>
-</div>
+    </header>
 
-<div id="mySidenav" class="sidenav">
-    <div class="container" style="background-color: #2874f0; padding-top: 10px;">
-        <span class="sidenav-heading">Home</span>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    </div>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
-    <a href="http://clashhacks.in/">Link</a>
-</div>
+    <!-- jQuery -->
+    <script src="static/jquery/jquery.min.js"></script>
 
-<section class="carousel carousel-fade slide home-slider" id="fullslider" data-ride="carousel"
-         data-interval="4500" data-pause="false">
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
 
-    <!-- Carousel-Inner -->
-    <div class="carousel-inner">
-        <div class="item active bg1">
-            <div class="banner-overlay">
-                <!-- Slide - 1 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-8 col-xs-12 animated notranstion">
-                            <br class="hidden-sm hidden-xs"/>
-                            <div class="wow" data-wow-duration="1500ms" data-wow-delay="100ms">
-                                <h1 class="carouselText1 text-left wow fadeInUp" data-wow-duration="1000ms"
-                                    data-wow-delay="150ms">This website is made for debaters to express there opinions
-                                    on any topic of their
-                                    choice.</h1>
-                                <p class="wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms">
-                                    <br>Users
-                                    can :
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
-                                <ul>
-                                    <li>Add their opinion on existing topics
-                                    <li>Add there own new topics for an open debate.
-                                </ul>
-
-                                </p>
-                                <br/>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div> <!-- End Slide - 1 -->
-        <div class="item bg2">
-            <div class="banner-overlay">
-                <!-- Slide - 2 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-4 hidden-xs animated">
-                            <img src="img/slider/slide1-1.png" alt="" class="slide1-2 wow fadeInLeft img-responsive"/>
-                        </div>
-                        <div class="col-md-6 col-sm-8 col-xs-12 animated text-right">
-                            <br class="hidden-sm hidden-xs"/>
-                            <h3 class="carouselText2 wow fadeInDown" data-wow-duration="600ms" data-wow-delay="100ms">
-                                Html5 & Css3
-                            </h3>
-                            <br/>
-                            <div class="car-highlight1 wow fadeInUp text-left" data-wow-duration="300ms"
-                                 data-wow-delay="0ms">
-                                Bootstrap is completely free to download!
-                            </div>
-                            <br/>
-                            <div class="car-highlight2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="150ms">
-                                Bootstrap Text/Typography, Bootstrap Tables
-                            </div>
-                            <br/>
-                            <div class="car-highlight3 wow fadeInUp" data-wow-duration="1800ms" data-wow-delay="300ms">
-                                Bootstrap Button Groups Total Control Bootstrap allows you to group a series of buttons.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- End Slide - 2 -->
-        <div class="item bg3">
-            <div class="banner-overlay">
-                <!-- Slide - 3 -->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center animated">
-                            <h1 class="carouselText1 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="150ms">Our
-                                CleanDesign Gives you More Flexibility For You</h1>
-                            <ul class="list-unstyled car-mediumtext2">
-                                <li>
-                                    <h3 class="car-highlight1 wow fadeInDown" data-wow-duration="1200ms"
-                                        data-wow-delay="300ms">
-                                        Clean Code + Design
-                                    </h3>
-                                </li>
-                                <li>
-                                    <h3 class="car-highlight2 hidden-xs wow fadeInDown" data-wow-duration="1800ms"
-                                        data-wow-delay="600ms">
-                                        Simple One Page Template
-                                    </h3>
-                                </li>
-                                <li>
-                                    <h3 class="car-highlight3 wow fadeInDown" data-wow-duration="2400ms"
-                                        data-wow-delay="900ms">
-                                        CleanDesign Comes with 2 Models
-                                    </h3>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- End Slide - 3 -->
-        <div class="item bg4"> <!-- Slide - 4 -->
-            <div class="banner-overlay">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-4  hidden-xs animated">
-                            <img src="img/slider/slide1-1.png" alt="" class="slide1-2 wow fadeInLeft img-responsive"/>
-                        </div>
-                        <div class="col-md-6 col-sm-8 col-xs-12 animated">
-                            <div class="wow" data-wow-duration="1500ms" data-wow-delay="100ms">
-                                <br/>
-                                <h1 class="carouselText1 col-gapall wow zoomIn" data-wow-duration="1500ms"
-                                    data-wow-delay="500ms">This Is a Great Place to Introduce </h1>
-                                <br/>
-                                <ul class="list-unstyled car-mediumtext">
-                                    <li class="wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="100ms"><i
-                                            class="fa fa-check-square wow fadeInDown" data-wow-duration="1500ms"
-                                            data-wow-delay="100ms"></i> Bootstrap is completely free to download!..
-                                    </li>
-                                    <li class="wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="500ms"><i
-                                            class="fa fa-check-square wow fadeInDown" data-wow-duration="1500ms"
-                                            data-wow-delay="100ms"></i>
-                                        Bootstrap Text/Typography, Bootstrap Tables....
-                                    </li>
-                                    <li class="wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="1000ms"><i
-                                            class="fa fa-check-square wow fadeInDown" data-wow-duration="1500ms"
-                                            data-wow-delay="100ms"></i>
-                                        Bootstrap Button Groups Total Control bootstrap allows you to group a series of
-                                        buttons.
-                                    </li>
-                                </ul>
-                                <br/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- End Slide - 4 -->
-    </div>
-    <!-- End Carousel-Inner -->
-    <!-- Carousel - Control -->
-
-
-    <a class="left carousel-control animated fadeInLeft" href="#fullslider" data-slide="prev"><i
-            class="fa fa-chevron-left"></i></a>
-    <a class="right carousel-control animated fadeInRight" href="#fullslider" data-slide="next"><i
-            class="fa fa-chevron-right"></i></a>
-
-</section>
-<script>
-    //WOW Scroll Spy
-    var wow = new WOW({
-        //disabled for mobile
-        mobile: false
-    });
-    wow.init();
-</script>
-<script type="text/javascript"
-        src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5892d5e98848c5c0"></script>
+    <!-- Theme JavaScript -->
+    <script src="js/creative.min.js"></script>
 
 </body>
 
