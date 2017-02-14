@@ -37,13 +37,13 @@ class medget:
         return search_res
 
     def get_question(self, ):
-        self.user_data = api.diagnosis(self.user_data)
+        self.user_data = self.api.diagnosis(self.user_data)
         ques = {}
 
         ques['text'] = self.user_data.question.text
         ques['text'] = self.user_data.question.text
-        ques['item']['id'] = self.user_data.question.items[i]['id']
-        ques['item']['name'] = self.user_data.question.items[i]['name']
+        ques['id'] = self.user_data.question.items[0]['id']
+        ques['name'] = self.user_data.question.items[0]['name']
         return ques
 
     def check_risk(self, ):
@@ -54,14 +54,14 @@ class medget:
 
     def get_result(self, ):
         result = {}
-        result['id'] = self.user_data.conditions[0]['id']      
-        result['name'] = self.user_data.conditions[0]['name']      
-        result['prob'] = self.user_data.conditions[0]['probability']
-        k = api.condition_details('c_221')
-        result['hint'] = k['extras']['hint']
-        result['severity'] = k['severity']
-        result['prevalence'] = k['prevalence']
-        result['acuteness'] = k['acuteness']
+        result['id'] = str(self.user_data.conditions[0][str('id')])      
+        result['name'] = str(self.user_data.conditions[0][str('name')])
+        result['prob'] = str(self.user_data.conditions[0]['probability'])
+        k = self.api.condition_details(result['id']).__dict__
+        result['hint'] = str(k[str('extras')][str('hint')])
+        result['severity'] = str(k[str('severity')])
+        result['prevalence'] = str(k[str('prevalence')])
+        result['acuteness'] = str(k[str('acuteness')])
         return result
  
 '''
