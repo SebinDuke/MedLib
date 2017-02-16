@@ -164,8 +164,8 @@ def quest(request):
             except ObjectDoesNotExist:
                 HttpResponse("Object not found")
 
-            age=user.age
-            sex=user.sex
+            age = 21#int(user.age)
+            sex = 'male'#user.sex.lower()
             ob.get_data(sex,age)
             lis=[]
             for i in checklist:
@@ -175,9 +175,50 @@ def quest(request):
                 lis.append(dic)
                 dic=None
 
-            ob.add_symptoms(lis)
-            return HttpResponse("yoyo")
+            #ob.add_symptoms(lis)
+            request.session['lis'] = lis
+            return HttpResponseRedirect(reverse('main:question'))
+            #return HttpResponse(a)
         #ob.get_questions()
+
+def question(request):
+    global ob
+    
+    i = []
+    if request.session.has_key('lis'):
+        i = request.session['lis']
+        try:
+            del request.session['lis']
+        except:
+            pass
+        ob.add_symptoms(i)
+        a = ob.get_question()
+        return render(request, 'Temp/question.html', {"ques_dict": a})
+        #return HttpResponse(a)
+    elif not ob.check_risk():
+        i = {}
+        if request.POST.get('yes'):
+            i['id'] = str(request.POST['id'])
+            i['status'] = 'present'
+        elif request.POST.get('no'):
+            i['id'] = str(request.POST['id'])
+            i['status'] = 'absent'
+        elif request.POST.get('dont'):
+            i['id'] = str(request.POST['id'])
+            i['status'] = 'unknown'
+    
+        a = []
+        a.append(i)
+        ob.add_symptoms(a)
+        a = ob.get_question()
+        return render(request, 'Temp/question.html', {"ques_dict": a})
+        #return HttpResponse(i)
+    #a = ob.get_question()
+    #return render(request, 'Temp/question.html', {"ques_dict": a})
+    else:
+        result = {}
+        result = ob.get_result()
+        return render(request, 'Temp/get_result.html', {"result": result})
 
 def logout(request):
    try:

@@ -14,7 +14,7 @@ class medget:
     def add_symptoms(self, ids):
         
         for i in ids:
-            self.user_data.add_symptom( i['id'], i['status'])
+            self.user_data.add_symptom( str(i[str(u'id')]), str(i[str(u'status')]))
         #absent status add
 
     def search_symptoms(self, symptoms_str):
@@ -41,11 +41,10 @@ class medget:
         ques = {}
 
         ques['text'] = self.user_data.question.text
-        ques['text'] = self.user_data.question.text
         ques['id'] = self.user_data.question.items[0]['id']
         ques['name'] = self.user_data.question.items[0]['name']
         return ques
-
+        
     def check_risk(self, ):
         if self.user_data.conditions[0]['probability'] > 0.7:
             return 1
@@ -63,21 +62,4 @@ class medget:
         result['prevalence'] = str(k[str('prevalence')])
         result['acuteness'] = str(k[str('acuteness')])
         return result
- 
-'''
-print(request.question.text)  # actual text of the question
-
-print '*************hey 6*********************'
-
-print(request.question.items)  # list of related evidences with possible answers
-
-print '*************hey 7*********************'
-
-print(request.question.items[0]['id'])
-
-print '*************hey 8*********************'
-
-print(request.question.items[0]['name'])
-
-'''
 

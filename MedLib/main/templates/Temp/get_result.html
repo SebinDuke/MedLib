@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <div class="flipkart-navbar-search smallsearch col-sm-8">
+                <div class="row">
+        <div>
+            <div>
+                <h1>
+                    <center>RESULT</center>
+                </h1>
+            </div>
+            <div>
+                <h3>
+                    {{ result.severity }}
+                </h3>
+            </div>
+            <div>
+                <h2>
+                    {{ result.probname }}
+                </h2>
+            </div>
+            <div>
+                <h3>
+                    {{ result.hint }}
+                </h3>
+            </div>
+        </div>
+
+
+                    <form class="form" method="POST" action="{% url 'main:index' %}"><!--Not applied yet -->
+                        {% csrf_token %}
+                        
+                        <br>
+                        <input type="submit" name="dont" value="GET NEARBY DOCTORS"><br>
+                        
+
+
+                    </form>
+                </div>
+            </div>
+</body>
+</html>

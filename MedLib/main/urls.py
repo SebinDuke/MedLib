@@ -35,4 +35,6 @@ urlpatterns = [
     url(r'^search_checkup$', views.search_checkup, name='search_checkup'),
 
     url(r'^quest$', views.quest, name='quest'),
+    
+    url(r'^question$', views.question, name='question'),
 ]
