@@ -7,6 +7,7 @@
 <body>
  <div class="flipkart-navbar-search smallsearch col-sm-8">
                 <div class="row">
+
         <div>
             <div>
                 <h1>
@@ -29,18 +30,45 @@
                 </h3>
             </div>
         </div>
-
-
-                    <form class="form" method="POST" action="{% url 'main:index' %}"><!--Not applied yet -->
+                    
+                    <form class="form" method="POST" action="{% url 'main:doc_list' %}"><!--Not applied yet -->
                         {% csrf_token %}
                         
                         <br>
-                        <input type="submit" name="dont" value="GET NEARBY DOCTORS"><br>
-                        
+                        <input type="submit" name="find_doctor" id="find_doctor" value="GET NEARBY DOCTORS"><br>
+                        <input type="hidden" name="location" id="location" value="0"><br>
+                        <input type="hidden" name="doctor_type" id="doctor_type" value="{{ result.hint }}">               
 
 
                     </form>
                 </div>
             </div>
+<div id = "geolocat">
+</div>
 </body>
 </html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    //console.log("23");    
+    //alert("hey");
+    $("#find_doctor").click(function(){
+    var l = "";
+    //console.log(l);
+    //alert("hey2");
+        $.getJSON("https://freegeoip.net/json/", function(result){
+            l = l + "{";            
+            $.each(result, function(i, field){
+            	l = l + "\"" + i + "\" : " + "\"" + field + "\", ";
+                        
+            });
+            l = l + "}";
+            $('#location').val(l);
+            //alert("hey"+l);
+        });
+        alert("hey3");
+    });
+});
+</script>
+

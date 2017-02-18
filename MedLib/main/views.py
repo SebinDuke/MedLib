@@ -4,16 +4,18 @@ from django.http import HttpResponse,HttpResponseRedirect
 from .medget import medget
 from django.views import generic
 import re
-
+import medplace
 from django.urls import reverse
 #for older versoins of Django use:
 #from django.core.urlresolvers import reverse
-
+import ast
 
 from .models import Users
 from main.forms import SignupForm,LoginForm,SearchForm#,AddTopicForm,AddOpinionForm,
 
 ob=medget()
+j = []
+
 def index(request):
     if request.session.has_key('user_id'):
         uid=request.session['user_id']
@@ -183,7 +185,8 @@ def quest(request):
 
 def question(request):
     global ob
-    
+    #global j
+    #j +=1
     i = []
     if request.session.has_key('lis'):
         i = request.session['lis']
@@ -211,15 +214,25 @@ def question(request):
         a.append(i)
         ob.add_symptoms(a)
         a = ob.get_question()
+        #j = i
         return render(request, 'Temp/question.html', {"ques_dict": a})
-        #return HttpResponse(i)
-    #a = ob.get_question()
-    #return render(request, 'Temp/question.html', {"ques_dict": a})
     else:
         result = {}
         result = ob.get_result()
         return render(request, 'Temp/get_result.html', {"result": result})
 
+def doc_list(request):
+    location = request.POST['location']
+    loc_dict = ast.literal_eval(location)
+    loc_dict1 = {}
+    loc_dict1['lat'] = loc_dict['latitude']
+    loc_dict1['lng'] = loc_dict['longitude']
+    doctor_type = request.POST['doctor_type']
+    doctor = doctor_type.split()
+    doctor_search = doctor[-2] + doctor[-1]
+    plac = medplace.get_places(lat_lng=loc_dict1, doctor_type=doctor_search)
+    return render(request, 'Temp/doctor.html', {"doc_list": plac})
+    
 def logout(request):
    try:
       del request.session['user_id']
