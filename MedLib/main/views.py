@@ -200,14 +200,15 @@ def question(request):
         #return HttpResponse(a)
     elif not ob.check_risk():
         i = {}
+        #id = request.POST.get('id')
         if request.POST.get('yes'):
-            i['id'] = str(request.POST['id'])
+            i['id'] = str(request.POST['option'])
             i['status'] = 'present'
         elif request.POST.get('no'):
-            i['id'] = str(request.POST['id'])
+            i['id'] = str(request.POST['option'])
             i['status'] = 'absent'
         elif request.POST.get('dont'):
-            i['id'] = str(request.POST['id'])
+            i['id'] = str(request.POST['option'])
             i['status'] = 'unknown'
     
         a = []
