@@ -72,4 +72,4 @@ class medget:
         result['prevalence'] = str(k[str('prevalence')])
         result['acuteness'] = str(k[str('acuteness')])
         return result
-
+        #return self.user_data.conditions[0]

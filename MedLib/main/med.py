@@ -7,9 +7,10 @@ request = medget()
 request.get_data('male', 12)
 request.add_symptoms([{'id':'s_21','status':'present'},{'id':'s_98','status':'present'},{'id':'s_107','status':'present'}, ]) 
 a = request.get_question()
-print(a)
+#print(a)
 '''for i in a:
     print(i['choices'])
     print(i['id'])
     print(i['name']) 
 '''
+print(request.get_result())
