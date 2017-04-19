@@ -1,13 +1,16 @@
 from django import forms
 
-
 class SignupForm(forms.Form):
     name = forms.CharField(max_length=30)
     email = forms.CharField(max_length=120)
-    pwd= forms.CharField(max_length=80)
-    age=forms.IntegerField()
-    sex=forms.CharField(max_length=7)
-   
+    pwd = forms.CharField(max_length=80)
+    age = forms.IntegerField()
+    sex = forms.CharField(max_length=7)
+    address = forms.CharField(max_length=100)
+    blood = forms.CharField(max_length=8)
+    blood_type = forms.CharField(max_length=8)
+    phone = forms.CharField(max_length=20)
+
 
 class LoginForm(forms.Form):
     email=forms.CharField(max_length = 80)

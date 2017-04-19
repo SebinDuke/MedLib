@@ -420,7 +420,8 @@ Cta
     min-width: 280px;
     margin-left: -4px;
     margin-bottom: 2px;
-    border: 1px solid #5fcf80;
+    border: 1px soli
+    d #5fcf80;
     background-color: rgb(247, 247, 247);
     border-radius: 30px 0px 0px 30px;
 }
@@ -439,6 +440,85 @@ Cta
     border-width: 1px 1px 1px 0px;
     border-radius: 0px 30px 30px 0px;
 }
+
+    .nav-tabs {
+      list-style: none;
+      margin: 0px;
+      border: none;
+    }
+    
+    .nav-tabs li {
+      list-style: none;
+      background: #15df72;
+      margin: 0px 0px 0px 1px;
+    }
+    
+    .nav-tabs li:first-child {
+      margin: 0px 0px 0px 0px;
+    }
+    
+    .nav-tabs li a {
+      color: #FFFFFF;
+      border-radius: 0px;
+      outline: none;
+      border: none;
+      margin: 0px;
+    }
+    
+    .nav-tabs li a:hover {
+      background: #15df72;
+      color: #323A45;
+      outline: none;
+    }
+    
+    .nav-tabs.nav-justified li.active a {
+      color: #323A45;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      outline: none;
+      border-radius: 0px;
+    }
+    
+    .nav-tabs.nav-justified>.active>a,
+    .nav-tabs.nav-justified>.active>a:focus,
+    .nav-tabs.nav-justified>.active>a:hover {
+      color: #323A45;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      outline: none;
+      border-radius: 0px;
+    }
+    
+    .nav-tabs.nav-justified>li>a {
+      border-bottom: 1px solid #fff;
+
+    }
+    
+    .tab-pane ul {
+      margin: 0px;
+      list-style: none;
+      padding: 10px;
+    }
+    
+    .tab-pane ul li:first-child {
+      border-top: none;
+    }
+    
+    .tab-pane ul li {
+      margin: 0px;
+      list-style: none;
+      padding: 10px 0;
+    }
+    
+    .tab-pane ul li a {
+      color: #323A45;
+    }
+    
+    .tab-pane ul li a:hover {
+      color: #000;
+    }
 /***********************************
 Work Shop
 ************************************/

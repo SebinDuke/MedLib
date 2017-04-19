@@ -1,6 +1,6 @@
 import requests
 
-KEY = ' AIzaSyCKU49OOsOSj4FOTQE4WzUIbpim5jwo0VI'
+KEY = ' AIzaSyBaqFHGf54KrU01tNhjb3vT4JRjnhR5t3s '
 
 lat_lng = {"lat" : "28.6", "lng" : "77.2"}
 

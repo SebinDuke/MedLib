@@ -59,8 +59,11 @@
                       <div class="inbox-body">
                           <a href="search_checkup" data-toggle="modal"  title="Compose"    class="btn btn-compose">
                               CHECK-UP NOW
+                          </a><br><br>
+                           <a href="blood-type" data-toggle="modal"  title="Compose"    class="btn btn-compose">
+                              FIND BLOOD DONORs
                           </a>
-                          
+                         
                       </div>
                       <ul class="inbox-nav inbox-divider">
                           <li class="active">
@@ -155,7 +158,7 @@
                              </div>
 
                              <ul class="unstyled inbox-pagination">
-                                 <li><span>1-50 of 234</span></li>
+                                 <li><span>Page 1 of 1 </span></li>
                                  <li>
                                      <a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
                                  </li>
@@ -171,51 +174,23 @@
                                       <input type="checkbox" class="mail-checkbox">
                                   </td>
                                   <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                  <td class="view-message  dont-show">PHPClass</td>
-                                  <td class="view-message ">Added a new class: Login Class Fast Site</td>
+                                  <td class="view-message  dont-show">Disease</td>
+                                  <td class="view-message ">Severity</td>
                                   <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                  <td class="view-message  text-right">9:27 AM</td>
+                                  <td class="view-message  text-right">Time</td>
                               </tr>
-                              <tr class="">
+                              {% for i in history %}
+                                 <tr class="">
                                   <td class="inbox-small-cells">
                                       <input type="checkbox" class="mail-checkbox">
                                   </td>
                                   <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                  <td class="view-message dont-show">Bertina </td>
-                                  <td class="view-message">IMPORTANT: Don't lose your domains!</td>
+                                  <td class="view-message dont-show">{{ i.dis_name }} </td>
+                                  <td class="view-message view-message">{{ i.dis_severity }}</td>
                                   <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                  <td class="view-message text-right">June 16</td>
+                                  <td class="view-message text-right">{{ i.dis_time }}</td>
                               </tr>
-                              <tr class="">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
-                                  <td class="view-message dont-show">Laura Gaffin, S P N </td>
-                                  <td class="view-message">Your Website On Google (Higher Rankings Are Better)</td>
-                                  <td class="view-message inbox-small-cells"></td>
-                                  <td class="view-message text-right">August 10</td>
-                              </tr>
-                              <tr class="">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                  <td class="view-message dont-show">Facebook</td>
-                                  <td class="view-message view-message">Alireza Zare Login faild</td>
-                                  <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                  <td class="view-message text-right">feb 14</td>
-                              </tr>
-                                                      <tr class="">
-                                  <td class="inbox-small-cells">
-                                      <input type="checkbox" class="mail-checkbox">
-                                  </td>
-                                  <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                  <td class="view-message dont-show">Facebook</td>
-                                  <td class="view-message view-message">Alireza Zare Login faild</td>
-                                  <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
-                                  <td class="view-message text-right">feb 14</td>
-                              </tr>
+                              {% endfor %}
                           </tbody>
                           </table>
                       </div>

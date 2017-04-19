@@ -1,6 +1,5 @@
 import infermedica_api
-
-infermedica_api.configure(app_id='349a2f56', app_key='cca4f464530bc1b49433057c2470fd44')
+infermedica_api.configure(app_id='38004d4f', app_key='f0d2cfeac82933b5b67a656e8ba46eb0')
 
 class medget:
 

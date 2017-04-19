@@ -9,19 +9,25 @@ from django.urls import reverse
 #for older versoins of Django use:
 #from django.core.urlresolvers import reverse
 import ast
+import datetime
+import time
 
-from .models import Users
+from .models import Users, History
 from main.forms import SignupForm,LoginForm,SearchForm#,AddTopicForm,AddOpinionForm,
 
 ob=medget()
 j = []
+
 
 def index(request):
     if request.session.has_key('user_id'):
         uid=request.session['user_id']
         try:
             user=Users.objects.get(pk=uid)
-            return render(request, 'Temp/logged.html',{'user_id':user})
+            hist = []
+            hist.extend(History.objects.filter(email=user.email).values('dis_name', 'dis_severity', 'dis_time'))
+            #return HttpResponse(hist)
+            return render(request, 'Temp/logged.html',{'user_id':user, 'history':hist})
         except Users.DoesNotExist:
             return HttpResponse("UserName not found")
     else:
@@ -35,6 +41,71 @@ def signup(request):
 
 def search_checkup(request):
     return render(request, 'Temp/search_checkup.html')
+
+
+def blood_type(request):
+    return render(request, 'Temp/blood_type.html')
+
+def blood_search(request):
+    if request.method == 'POST':
+        location = request.POST['location']
+        loc_dict = ast.literal_eval(location)
+        loc_dict1 = {}
+        loc_dict1['lat'] = loc_dict['latitude']
+        loc_dict1['lng'] = loc_dict['longitude']
+
+        plac = medplace.get_places(lat_lng=loc_dict1, doctor_type='blood bank')
+        #return HttpResponse("hey" + str(plac))
+        
+    
+        #checklist = topic.cleaned_data.get('symptom')
+        checklist = []
+        try:
+            checklist.append(request.POST['blood1'])
+        except:
+            pass
+        try:
+            checklist.append(request.POST['blood2'])
+        except:
+            pass
+        try:
+            checklist.append(request.POST['blood3'])
+        except:
+            pass
+        try:
+            checklist.append(request.POST['blood4'])
+        except:
+            pass
+        try:
+            checklist.append(request.POST['blood5'])
+        except:
+            pass
+        try:
+            checklist.append(request.POST['blood6'])
+        except:
+            pass
+        try:
+            checklist.append(request.POST['blood7'])
+        except:
+            pass
+        #return HttpResponse(checklist)
+        #k = Users.objects.filter(blood='O+', blood_type='YES').values('email', 'name', 'phone', 'age', 'blood', 'blood_type', 'address')
+        #for l in k:
+        #    return HttpResponse('hey' + str(l['email']) + str(l['name']) + str(l['phone']))
+            #return render(request, 'Temp/symtoms.html', {"list": li,"len":l})
+         
+        user_model = []
+        for i in checklist:
+            user_model.extend(Users.objects.filter(blood=i, blood_type='YES').values('email', 'name', 'phone', 'age', 'blood', 'blood_type', 'address'))
+            #return HttpResponse(user_model)
+        
+            #user_model.append(user_model))
+            #return HttpResponse(user_model)
+        
+        #return HttpResponse("hey" + str(user_model))
+        
+    return render(request, 'Temp/blood_search.html', {"user_list": user_model,"blood_bank": plac, }) 
+
 
 def search(request):
     if request.method == 'POST':
@@ -110,6 +181,7 @@ def search1(request):
         return HttpResponse("not POST")
 
 
+
 def register(request):
     if request.method == 'POST':
         signup=SignupForm(request.POST)
@@ -120,6 +192,11 @@ def register(request):
                 pwd=signup.cleaned_data.get('pwd'),
                 age=signup.cleaned_data.get('age'),
                 sex=signup.cleaned_data.get('sex'),
+                address=signup.cleaned_data.get('address'),
+                blood=signup.cleaned_data.get('blood').upper(),
+                blood_type=signup.cleaned_data.get('blood_type').upper(),
+                phone=signup.cleaned_data.get('phone'),
+                
             )
             p.save()
             request.session['user_id'] = p.id
@@ -214,7 +291,17 @@ def question(request):
         return render(request, 'Temp/question.html', {"ques_dict": a})
     else:
         result = {}
+        uid = request.session['user_id']
+        user = Users.objects.get(pk=uid)
         result = ob.get_result()
+        History(
+            email=user.email,
+            dis_name=result['name'],
+            dis_severity=result['severity'],
+            dis_probname="",
+            dis_hint=result['hint'],
+            dis_time = str(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')),
+        ).save()
         return render(request, 'Temp/get_result.html', {"result": result})
 
 def doc_list(request):

@@ -6,10 +6,25 @@ class Users(models.Model):
     pwd= models.CharField(max_length=80)
     age= models.IntegerField()
     sex=models.CharField(max_length=8)
+    latitude=models.CharField(max_length=50,default="")
+    longitude=models.CharField(max_length=50,default="")
+    address=models.CharField(max_length=100,default="")
+    blood=models.CharField(max_length=8,default="")
+    blood_type=models.CharField(max_length=8,default="")
+    phone=models.CharField(max_length=20,default="9508233223")
+            
     #no_of_topics=models.IntegerField(default=0)
     #type_user=models.IntegerField(default=0) #simple=0 org=1
-    def __str__(self):
-        return self.user_name
+    #def __str__(self):
+    #    return self
+
+class History(models.Model):
+    email = models.CharField(max_length=120,unique=True)
+    dis_name = models.CharField(max_length=120)
+    dis_severity = models.CharField(max_length=120)
+    dis_probname = models.CharField(max_length=120)
+    dis_hint = models.CharField(max_length=120)
+    dis_time = models.CharField(max_length=120)
 
 
 """
