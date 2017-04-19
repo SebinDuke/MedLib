@@ -1,80 +1,227 @@
-<!DOCTYPE html>
+<!DOCTYPE html> {% load static %}
+
 <html lang="en">
-{% load static %}
 
 <head>
-
     <meta charset="utf-8">
-    <title>MedLib</title>
-    <meta name="generator" content="Bootply"/>
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <!--[if lt IE 9]>
-			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>
+    </title>
     <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Bootstrap Core CSS -->
-
-     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <!-- Custom CSS -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1"> {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,700,800' rel='stylesheet'
+        type='text/css'>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
+    <link href='https://fonts.googleapis.com/css?family=Sonsie+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/imagehover.min.css' %}" type="text/css" />
 </head>
-<body style="background: #eeeeee">
 
-
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<div id="flipkart-navbar" style="background: #576396">
-    <div class="container">
-        <div class="row row1" style="margin-top: 20px;padding-bottom:20px">
-            <div class="col-sm-2">
-                <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()"></span></h2>
-                <h1 style="margin:0px;"><span class="largenav"></span></h1>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+                <a class="navbar-brand" href="/">HEALTH MEDLIB</a>
             </div>
-            <div class="flipkart-navbar-search smallsearch col-sm-8">
-                <div class="row">
-
-                    <form class="form" method="POST" action="{% url 'main:search' %}"><!--Not applied yet -->
-                        {% csrf_token %}
-                        <input style="color:#000" class="flipkart-navbar-input col-xs-11" name="topic_text" type=""
-                               placeholder="Search for Issues and more" required>
-                        <button class="flipkart-navbar-button col-xs-1">
-                            <svg width="15px" height="15px">
-                                <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <div class="col-sm-1">
-                <ul style="padding-top:5px;list-style:none">
-                    <li><h4 style="font-size: 15px;font-weight: bolder"> {{ user_id.user_name }}</h4>
-
-
-                    </li>
-                </ul>
-            </div>
-            <div class="col-sm-1">
-                <ul style="padding-top:5px;list-style:none">
-                    <li><a style="font-size: 15px;font-weight: bolder" href="logout" class="btn btn-warning">Log Out</a>
-                    </li>
-
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/search_checkup">CHECK-UP NOW</a></li>
+                    
+                    <li class="btn-trial"><a href="/">Profile Home</a></li>
                 </ul>
             </div>
         </div>
-    </div>
-</div>
-<center>
+    </nav>
+<br><br><br><br>
+<div class="container">
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+ <div class="mail-box">
+                  <aside class="sm-side">
+                      <div class="user-head">
+                          <a class="inbox-avatar" href="javascript:;">
+                              <img  width="64" hieght="60" src="{% static 'img/profile.png' %}">
+                          </a>
+                          <div class="user-name">
+                              <h5><a href="#">{{ user_id.name }}</a></h5>
+                              <span><a href="#">{{ user_id.email }}</a></span>
+                          </div>
+                          <a class="mail-dropdown pull-right" href="javascript:;">
+                              <i class="fa fa-chevron-down"></i>
+                          </a>
+                      </div>
+                      <div class="inbox-body">
+                          <a href="search_checkup" data-toggle="modal"  title="Compose"    class="btn btn-compose">
+                              CHECK-UP NOW
+                          </a>
+                          
+                      </div>
+                      <ul class="inbox-nav inbox-divider">
+                          <li class="active">
+                              <a href="#"><i class="fa fa-inbox"></i>{{ user_id.name }}</a>
 
-<a style="margin-top:20px; padding: 30px; font-size: 30px" class="btn btn-warning" href="search_checkup">CHECK-UP NOW</a>
-</center>
-<script type="text/javascript"
-        src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5892d5e98848c5c0"></script>
+                          </li>
+                          <li>
+                              <a href="#"><i class="fa fa-envelope-o"></i>{{ user_id.email }} </a>
+                          </li>
+                          <li style="text-transform: uppercase">
+                              <a href="#"><i class="fa fa-bookmark-o"></i> {{ user_id.sex }}</a>
+                          </li>
+                          <li>
+                              <a href="#"><i class=" fa fa-external-link"></i>Age : {{ user_id.age }}</a>
+                          </li>
+                         
+                      </ul>
+                      
+                      <div class="inbox-body text-center">
+                          <div class="btn-group">
+                              <a class="btn mini btn-primary" href="javascript:;">
+                                  <i class="fa fa-plus"></i>
+                              </a>
+                          </div>
+                          <div class="btn-group">
+                              <a class="btn mini btn-success" href="javascript:;">
+                                  <i class="fa fa-phone"></i>
+                              </a>
+                          </div>
+                          <div class="btn-group">
+                              <a class="btn mini btn-info" href="javascript:;">
+                                  <i class="fa fa-cog"></i>
+                              </a>
+                          </div>
+                      </div>
+
+                  </aside>
+                  <aside class="lg-side">
+                      <div class="inbox-head">
+                          <h3>Welcome</h3>
+                          <form action="#" class="pull-right position">
+                              <div class="input-append">
+                                  <a href="/logout" class="btn btn-compose" type="button"  style="width: 100px"> Logout </a>
+                              </div>
+                          </form>
+                      </div>
+                      <div class="inbox-body">
+                         <div class="mail-option">
+                             <div class="chk-all">
+                                 <input type="checkbox" class="mail-checkbox mail-group-checkbox">
+                                 <div class="btn-group">
+                                     <a data-toggle="dropdown" href="#" class="btn mini all" aria-expanded="false">
+                                         All
+                                         <i class="fa fa-angle-down "></i>
+                                     </a>
+                                     <ul class="dropdown-menu">
+                                         <li><a href="#"> None</a></li>
+                                         <li><a href="#"> Read</a></li>
+                                         <li><a href="#"> Unread</a></li>
+                                     </ul>
+                                 </div>
+                             </div>
+
+                             <div class="btn-group">
+                                 <a data-original-title="Refresh" data-placement="top" data-toggle="dropdown" href="#" class="btn mini tooltips">
+                                     <i class=" fa fa-refresh"></i>
+                                 </a>
+                             </div>
+                             <div class="btn-group hidden-phone">
+                                 <a data-toggle="dropdown" href="#" class="btn mini blue" aria-expanded="false">
+                                     More
+                                     <i class="fa fa-angle-down "></i>
+                                 </a>
+                                 <ul class="dropdown-menu">
+                                     <li><a href="#"><i class="fa fa-pencil"></i> Mark as Read</a></li>
+                                     <li><a href="#"><i class="fa fa-ban"></i> Spam</a></li>
+                                     <li class="divider"></li>
+                                     <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+                                 </ul>
+                             </div>
+                             <div class="btn-group">
+                                 <a data-toggle="dropdown" href="#" class="btn mini blue">
+                                     Move to
+                                     <i class="fa fa-angle-down "></i>
+                                 </a>
+                                 <ul class="dropdown-menu">
+                                     <li><a href="#"><i class="fa fa-pencil"></i> Mark as Read</a></li>
+                                     <li><a href="#"><i class="fa fa-ban"></i> Spam</a></li>
+                                     <li class="divider"></li>
+                                     <li><a href="#"><i class="fa fa-trash-o"></i> Delete</a></li>
+                                 </ul>
+                             </div>
+
+                             <ul class="unstyled inbox-pagination">
+                                 <li><span>1-50 of 234</span></li>
+                                 <li>
+                                     <a class="np-btn" href="#"><i class="fa fa-angle-left  pagination-left"></i></a>
+                                 </li>
+                                 <li>
+                                     <a class="np-btn" href="#"><i class="fa fa-angle-right pagination-right"></i></a>
+                                 </li>
+                             </ul>
+                         </div>
+                          <table class="table table-inbox table-hover">
+                            <tbody>
+                              <tr class="unread">
+                                  <td class="inbox-small-cells">
+                                      <input type="checkbox" class="mail-checkbox">
+                                  </td>
+                                  <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                                  <td class="view-message  dont-show">PHPClass</td>
+                                  <td class="view-message ">Added a new class: Login Class Fast Site</td>
+                                  <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
+                                  <td class="view-message  text-right">9:27 AM</td>
+                              </tr>
+                              <tr class="">
+                                  <td class="inbox-small-cells">
+                                      <input type="checkbox" class="mail-checkbox">
+                                  </td>
+                                  <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                                  <td class="view-message dont-show">Bertina </td>
+                                  <td class="view-message">IMPORTANT: Don't lose your domains!</td>
+                                  <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
+                                  <td class="view-message text-right">June 16</td>
+                              </tr>
+                              <tr class="">
+                                  <td class="inbox-small-cells">
+                                      <input type="checkbox" class="mail-checkbox">
+                                  </td>
+                                  <td class="inbox-small-cells"><i class="fa fa-star inbox-started"></i></td>
+                                  <td class="view-message dont-show">Laura Gaffin, S P N </td>
+                                  <td class="view-message">Your Website On Google (Higher Rankings Are Better)</td>
+                                  <td class="view-message inbox-small-cells"></td>
+                                  <td class="view-message text-right">August 10</td>
+                              </tr>
+                              <tr class="">
+                                  <td class="inbox-small-cells">
+                                      <input type="checkbox" class="mail-checkbox">
+                                  </td>
+                                  <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                                  <td class="view-message dont-show">Facebook</td>
+                                  <td class="view-message view-message">Alireza Zare Login faild</td>
+                                  <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
+                                  <td class="view-message text-right">feb 14</td>
+                              </tr>
+                                                      <tr class="">
+                                  <td class="inbox-small-cells">
+                                      <input type="checkbox" class="mail-checkbox">
+                                  </td>
+                                  <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
+                                  <td class="view-message dont-show">Facebook</td>
+                                  <td class="view-message view-message">Alireza Zare Login faild</td>
+                                  <td class="view-message inbox-small-cells"><i class="fa fa-paperclip"></i></td>
+                                  <td class="view-message text-right">feb 14</td>
+                              </tr>
+                          </tbody>
+                          </table>
+                      </div>
+                  </aside>
+              </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" ></script>
 </body>
 </html>

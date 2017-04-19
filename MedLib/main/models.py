@@ -1,16 +1,11 @@
 from django.db import models
 
 class Users(models.Model):
-    user_name = models.CharField(max_length=80,unique=True)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    email = models.CharField(max_length=120)
+    name = models.CharField(max_length=30)
+    email = models.CharField(max_length=120,unique=True)
     pwd= models.CharField(max_length=80)
     age= models.IntegerField()
     sex=models.CharField(max_length=8)
-    country=models.CharField(max_length=30)
-    height=models.IntegerField()
-    weight=models.IntegerField()
     #no_of_topics=models.IntegerField(default=0)
     #type_user=models.IntegerField(default=0) #simple=0 org=1
     def __str__(self):

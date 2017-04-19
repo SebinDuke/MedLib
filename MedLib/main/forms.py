@@ -2,20 +2,15 @@ from django import forms
 
 
 class SignupForm(forms.Form):
-    username=forms.CharField(max_length = 80)
-    firstname = forms.CharField(max_length=30)
-    lastname = forms.CharField(max_length=30)
+    name = forms.CharField(max_length=30)
     email = forms.CharField(max_length=120)
     pwd= forms.CharField(max_length=80)
     age=forms.IntegerField()
     sex=forms.CharField(max_length=7)
-    country = forms.CharField(max_length=30)
-    height = forms.IntegerField()
-    weight = forms.IntegerField()
-
+   
 
 class LoginForm(forms.Form):
-    username=forms.CharField(max_length = 80)
+    email=forms.CharField(max_length = 80)
     pwd= forms.CharField(max_length=80)
 
 """

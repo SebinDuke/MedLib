@@ -60,7 +60,7 @@ def search(request):
 
 def search1(request):
     if request.method == 'POST':
-        topic=SearchForm(request.POST)
+        topic=SearchForm(request.POST,initial={"topic_text": "c"})
         if topic.is_valid():
             sim_str=topic.cleaned_data.get('topic_text')
             checklist=sim_str.split(",")
@@ -115,15 +115,11 @@ def register(request):
         signup=SignupForm(request.POST)
         if signup.is_valid():
             p=Users(
-                user_name=signup.cleaned_data.get('username'),
-                first_name=signup.cleaned_data.get('firstname'),
-                last_name=signup.cleaned_data.get('lastname'),
+                name=signup.cleaned_data.get('name'),
                 email=signup.cleaned_data.get('email'),
                 pwd=signup.cleaned_data.get('pwd'),
                 age=signup.cleaned_data.get('age'),
-                height=signup.cleaned_data.get('height'),
-                weight=signup.cleaned_data.get('weight'),
-                country=signup.cleaned_data.get('country'),
+                sex=signup.cleaned_data.get('sex'),
             )
             p.save()
             request.session['user_id'] = p.id
@@ -134,12 +130,11 @@ def logInReq(request):
         log=LoginForm(request.POST)
         if log.is_valid():
             try:
-                user=Users.objects.get(user_name=log.cleaned_data.get('username'),pwd=log.cleaned_data.get('pwd'))
+                user=Users.objects.get(email=log.cleaned_data.get('email'),pwd=log.cleaned_data.get('pwd'))
                 request.session['user_id'] = user.id
                 return HttpResponseRedirect(reverse('main:index'))
             except Users.DoesNotExist:
                 return HttpResponse("WRONG USERNAME OR PASSWORD")
-
 
 """
 class LoggedIn(generic.DetailView):
@@ -200,14 +195,15 @@ def question(request):
         #return HttpResponse(a)
     elif not ob.check_risk():
         i = {}
+        #id = request.POST.get('id')
         if request.POST.get('yes'):
-            i['id'] = str(request.POST['id'])
+            i['id'] = str(request.POST['option'])
             i['status'] = 'present'
         elif request.POST.get('no'):
-            i['id'] = str(request.POST['id'])
+            i['id'] = str(request.POST['option'])
             i['status'] = 'absent'
         elif request.POST.get('dont'):
-            i['id'] = str(request.POST['id'])
+            i['id'] = str(request.POST['option'])
             i['status'] = 'unknown'
     
         a = []

@@ -38,12 +38,22 @@ class medget:
 
     def get_question(self, ):
         self.user_data = self.api.diagnosis(self.user_data)
+        optn_list = []
         ques = {}
-
         ques['text'] = self.user_data.question.text
-        ques['id'] = self.user_data.question.items[0]['id']
-        ques['name'] = self.user_data.question.items[0]['name']
+        ques['option'] = []
+
+        for i in self.user_data.question.items:
+            optn = {}
+            optn['id'] = i['id']
+            optn['name'] = i['name']
+            optn['choice'] = i['choices']
+
+            ques['option'].append(optn)
         return ques
+        #return optn_list
+        
+        #return self.user_data.question.items
         
     def check_risk(self, ):
         if self.user_data.conditions[0]['probability'] > 0.7:
@@ -62,4 +72,4 @@ class medget:
         result['prevalence'] = str(k[str('prevalence')])
         result['acuteness'] = str(k[str('acuteness')])
         return result
-
+        #return self.user_data.conditions[0]
